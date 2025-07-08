@@ -23,8 +23,8 @@ export const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-lg px-8">
-                Start Free Trial
+              <Button size="lg" className="text-lg px-8" asChild>
+                <a href="/editor">Try Template Editor</a>
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-8">
                 Watch Demo

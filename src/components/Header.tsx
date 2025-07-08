@@ -17,8 +17,11 @@ export const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="#templates" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Templates
+            <a href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Home
+            </a>
+            <a href="/editor" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Template Editor
             </a>
             <a href="#assets" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Assets
