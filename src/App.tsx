@@ -8,6 +8,7 @@ import TemplateEditor from "./pages/TemplateEditor";
 import Dashboard from "./pages/Dashboard";
 import Permissions from "./pages/Permissions";
 import BrandAssets from "./pages/BrandAssets";
+import Analytics from "./pages/Analytics";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/permissions" element={<Permissions />} />
           <Route path="/assets" element={<BrandAssets />} />
+          <Route path="/analytics" element={<Analytics />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
