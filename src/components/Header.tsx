@@ -29,7 +29,7 @@ export const Header = () => {
             <a href="/permissions" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Permissions
             </a>
-            <a href="#assets" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="/assets" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Assets
             </a>
           </nav>
