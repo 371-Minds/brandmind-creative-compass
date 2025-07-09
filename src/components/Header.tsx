@@ -35,6 +35,9 @@ export const Header = () => {
             <a href="/analytics" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Analytics
             </a>
+            <a href="/integrations" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Integrations
+            </a>
           </nav>
 
           <div className="flex items-center space-x-3">

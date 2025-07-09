@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Permissions from "./pages/Permissions";
 import BrandAssets from "./pages/BrandAssets";
 import Analytics from "./pages/Analytics";
+import ApiIntegrations from "./pages/ApiIntegrations";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/permissions" element={<Permissions />} />
           <Route path="/assets" element={<BrandAssets />} />
           <Route path="/analytics" element={<Analytics />} />
+          <Route path="/integrations" element={<ApiIntegrations />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
