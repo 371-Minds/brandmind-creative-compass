@@ -23,6 +23,9 @@ export const Header = () => {
             <a href="/editor" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Template Editor
             </a>
+            <a href="/preview" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Template Preview
+            </a>
             <a href="/dashboard" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Dashboard
             </a>
