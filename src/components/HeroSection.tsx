@@ -2,7 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import heroImage from "@/assets/hero-image.jpg";
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  onStartOnboarding?: () => void;
+}
+
+export const HeroSection = ({ onStartOnboarding }: HeroSectionProps) => {
   return (
     <section className="relative bg-gradient-to-br from-background to-accent py-24">
       <div className="container mx-auto px-6">
@@ -23,11 +27,15 @@ export const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-lg px-8" asChild>
-                <a href="/editor">Try Template Editor</a>
+              <Button 
+                size="lg" 
+                className="text-lg px-8" 
+                onClick={onStartOnboarding}
+              >
+                Get Started
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8">
-                Watch Demo
+              <Button variant="outline" size="lg" className="text-lg px-8" asChild>
+                <a href="/editor">Try Template Editor</a>
               </Button>
             </div>
 

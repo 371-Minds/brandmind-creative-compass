@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-export const Header = () => {
+interface HeaderProps {
+  onStartOnboarding?: () => void;
+}
+
+export const Header = ({ onStartOnboarding }: HeaderProps) => {
   return (
     <header className="bg-background border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4">
