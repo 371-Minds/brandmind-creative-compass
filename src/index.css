@@ -2,63 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* BrandMind Design System - Professional brand management platform */
+/* BrandMind Design System - Modern Dark Professional Platform */
 
 @layer base {
   :root {
+    /* Light theme - minimal and clean */
     --background: 0 0% 100%;
-    --foreground: 215 25% 27%;
+    --foreground: 224 71% 4%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    --card-foreground: 224 71% 4%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    --popover-foreground: 224 71% 4%;
 
-    /* Primary brand colors - Professional blue */
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 217 91% 55%;
+    /* Modern primary colors - Vibrant purple-blue */
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 20% 98%;
+    --primary-hover: 262 83% 65%;
+    --primary-glow: 262 83% 70%;
 
-    /* Secondary colors - Clean grays */
-    --secondary: 210 17% 95%;
-    --secondary-foreground: 215 25% 27%;
+    /* Secondary colors - Refined grays */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
 
-    --muted: 210 17% 95%;
-    --muted-foreground: 215 13% 65%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 217 91% 95%;
-    --accent-foreground: 217 91% 60%;
+    --accent: 262 83% 97%;
+    --accent-foreground: 262 83% 58%;
 
-    /* Status colors */
+    /* Enhanced status colors */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 210 20% 98%;
     
     --success: 142 76% 36%;
-    --success-foreground: 0 0% 100%;
+    --success-foreground: 210 20% 98%;
     
     --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 100%;
+    --warning-foreground: 210 20% 98%;
+
+    --info: 217 91% 60%;
+    --info-foreground: 210 20% 98%;
 
     /* Zone-specific colors */
     --locked-zone: 0 84% 60%;
-    --locked-zone-foreground: 0 0% 100%;
+    --locked-zone-foreground: 210 20% 98%;
     --locked-zone-bg: 0 84% 97%;
     
     --editable-zone: 142 76% 36%;
-    --editable-zone-foreground: 0 0% 100%;
+    --editable-zone-foreground: 210 20% 98%;
     --editable-zone-bg: 142 76% 97%;
     
     --controlled-zone: 38 92% 50%;
-    --controlled-zone-foreground: 0 0% 100%;
+    --controlled-zone-foreground: 210 20% 98%;
     --controlled-zone-bg: 38 92% 97%;
 
     /* UI Elements */
-    --border: 210 17% 90%;
-    --input: 210 17% 90%;
-    --ring: 217 91% 60%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262 83% 58%;
 
-    --radius: 0.5rem;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(262 83% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 14% 96%), hsl(220 14% 90%));
+    --gradient-hero: linear-gradient(135deg, hsl(262 83% 58% / 0.1), hsl(262 83% 70% / 0.05));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+    --shadow-glow: 0 0 20px hsl(262 83% 58% / 0.3);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -78,33 +94,71 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark theme - Modern and sophisticated */
+    --background: 224 71% 4%;
+    --foreground: 210 20% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 224 71% 6%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 224 71% 6%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Dark primary colors */
+    --primary: 262 83% 65%;
+    --primary-foreground: 224 71% 4%;
+    --primary-hover: 262 83% 70%;
+    --primary-glow: 262 83% 75%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 217 10% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 262 83% 15%;
+    --accent-foreground: 262 83% 65%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Dark status colors */
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 210 20% 98%;
+    
+    --success: 142 76% 45%;
+    --success-foreground: 210 20% 98%;
+    
+    --warning: 38 92% 60%;
+    --warning-foreground: 224 71% 4%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --info: 217 91% 70%;
+    --info-foreground: 224 71% 4%;
+
+    /* Dark zone colors */
+    --locked-zone: 0 63% 50%;
+    --locked-zone-foreground: 210 20% 98%;
+    --locked-zone-bg: 0 63% 10%;
+    
+    --editable-zone: 142 76% 45%;
+    --editable-zone-foreground: 210 20% 98%;
+    --editable-zone-bg: 142 76% 10%;
+    
+    --controlled-zone: 38 92% 60%;
+    --controlled-zone-foreground: 224 71% 4%;
+    --controlled-zone-bg: 38 92% 10%;
+
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 262 83% 65%;
+
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 65%), hsl(262 83% 75%));
+    --gradient-secondary: linear-gradient(135deg, hsl(215 28% 17%), hsl(215 28% 15%));
+    --gradient-hero: linear-gradient(135deg, hsl(262 83% 65% / 0.1), hsl(262 83% 75% / 0.05));
+
+    /* Dark shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.2);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.4), 0 4px 6px -4px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 30px hsl(262 83% 65% / 0.4);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -122,6 +176,72 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus visible styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Selection styles */
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+}
+
+/* Custom animations and transitions */
+@layer utilities {
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+
+  .scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  .bounce-in {
+    animation: bounceIn 0.6s ease-out forwards;
+  }
+
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  /* Loading states */
+  .skeleton {
+    @apply animate-pulse bg-muted rounded;
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, transparent, hsl(var(--muted) / 0.3), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
   }
 }
