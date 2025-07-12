@@ -1,73 +1,85 @@
-# Welcome to your Lovable project
+# BrandMind - Intelligent Template Systems
 
-## Project info
+> Brand guardrails, not brand jail. Smart template systems for enterprise teams.
+
+## About BrandMind
+
+BrandMind is an intelligent template management platform that maintains brand integrity while enabling creative freedom. Built for enterprise teams who need to balance brand consistency with design flexibility.
+
+## Key Features
+
+- **Multi-Device Template Preview** - View templates across desktop, tablet, and mobile with realistic device frames
+- **Interactive Zone Editing** - Click-to-edit template zones with real-time validation
+- **Print Preview System** - Professional print layouts with bleed indicators and paper size options
+- **Brand Guidelines Management** - Upload and automatically parse brand assets with compliance checking
+- **Team Collaboration** - Role-based permissions and invitation workflows
+- **Template Variations** - AI-powered layout suggestions and before/after comparisons
+- **Onboarding Flow** - Guided setup process for new teams and projects
+- **Dark Modern Theme** - Professional interface with smooth animations and transitions
+
+## Live Demo
 
 **URL**: https://lovable.dev/projects/52a60a8d-afa9-4583-9acc-41f85ee6ade3
 
-## How can I edit this code?
+## Development
 
-There are several ways of editing your application.
+### Prerequisites
 
-**Use Lovable**
+- Node.js & npm ([install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/52a60a8d-afa9-4583-9acc-41f85ee6ade3) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Local Setup
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
+# Install dependencies
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Using Lovable
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Visit the [Lovable Project](https://lovable.dev/projects/52a60a8d-afa9-4583-9acc-41f85ee6ade3) to edit with AI assistance. Changes sync automatically to this repository.
 
-**Use GitHub Codespaces**
+### Other Development Options
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **GitHub Codespaces**: Click "Code" → "Codespaces" → "New codespace"
+- **Direct GitHub editing**: Click the pencil icon on any file
 
-## What technologies are used for this project?
+## Technology Stack
 
-This project is built with:
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS, shadcn/ui components
+- **State Management**: React Query
+- **Routing**: React Router
+- **Icons**: Lucide React
+- **Animation**: CSS transitions and transforms
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
+Deploy instantly via Lovable:
+1. Open [Lovable Project](https://lovable.dev/projects/52a60a8d-afa9-4583-9acc-41f85ee6ade3)
+2. Click Share → Publish
 
-Simply open [Lovable](https://lovable.dev/projects/52a60a8d-afa9-4583-9acc-41f85ee6ade3) and click on Share -> Publish.
+## Custom Domain
 
-## Can I connect a custom domain to my Lovable project?
+Connect your domain in Project → Settings → Domains.
 
-Yes, you can!
+[Learn more about custom domains](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Contributing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project uses bidirectional sync between Lovable and GitHub. You can:
+- Make changes in Lovable (syncs to GitHub automatically)
+- Push changes to GitHub (syncs to Lovable automatically)
+- Use standard Git workflows with branches and pull requests
+
+## License
+
+Built with ❤️ using [Lovable](https://lovable.dev)
