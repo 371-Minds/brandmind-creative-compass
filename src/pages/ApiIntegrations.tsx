@@ -24,7 +24,8 @@ import {
   AlertCircle,
   XCircle,
   RefreshCw,
-  Download
+  Download,
+  Play
 } from "lucide-react";
 
 interface ApiIntegration {
@@ -97,6 +98,107 @@ const integrations: ApiIntegration[] = [
   }
 ];
 
+const adobeSdkApiCalls = [
+  {
+    title: "Document Change Listener",
+    endpoint: "Adobe Creative SDK",
+    category: "Real-time Events",
+    code: `addOnUiSdk.app.document.addEventListener('documentChange', (event) => {
+  const editedElement = event.target;
+  const zoneId = editedElement.getAttribute('data-zone-id');
+  
+  // Check if editing locked zone
+  if (templateRules.lockedZones.includes(zoneId)) {
+    event.preventDefault();
+    showComplianceWarning('This zone is protected by brand guidelines');
+    return;
+  }
+  
+  // Validate brand compliance
+  validateElementCompliance(editedElement);
+});`,
+    testResponse: `{
+  "status": "success",
+  "event": "documentChange",
+  "zoneId": "headline-zone",
+  "compliance": {
+    "valid": true,
+    "score": 98,
+    "warnings": []
+  },
+  "timestamp": "2024-01-15T10:30:00Z"
+}`
+  },
+  {
+    title: "Brand Color Picker",
+    endpoint: "Adobe Creative SDK",
+    category: "UI Controls",
+    code: `addOnUiSdk.app.showColorPicker({
+  colors: [
+    { hex: '#3B82F6', name: 'Primary Blue' },
+    { hex: '#10B981', name: 'Success Green' },
+    { hex: '#F59E0B', name: 'Warning Amber' }
+  ],
+  disableCustomColors: true,
+  onColorSelect: (color) => {
+    if (validateBrandColor(color.hex)) {
+      applyColorToSelection(color.hex);
+      logBrandUsage('color', color.name);
+    }
+  }
+});`,
+    testResponse: `{
+  "status": "success",
+  "colorSelected": {
+    "hex": "#3B82F6",
+    "name": "Primary Blue",
+    "brandCompliant": true
+  },
+  "appliedTo": "text-selection",
+  "timestamp": "2024-01-15T10:31:15Z"
+}`
+  },
+  {
+    title: "Template Zone Configuration",
+    endpoint: "Adobe Creative SDK",
+    category: "Data Management",
+    code: `const zoneConfiguration = {
+  zones: {
+    'logo-zone': { 
+      editable: false, 
+      required: true,
+      assetLibrary: 'approved-logos' 
+    },
+    'headline-zone': { 
+      editable: true, 
+      maxLength: 80,
+      allowedFonts: ['Arial Bold', 'Helvetica Bold']
+    },
+    'body-zone': { 
+      editable: true, 
+      maxLength: 300,
+      allowedFonts: ['Arial', 'Helvetica']
+    }
+  },
+  brandGuidelines: {
+    colorPalette: ['#3B82F6', '#10B981', '#F59E0B'],
+    typography: ['Arial', 'Helvetica'],
+    logoVariations: ['primary', 'white', 'black']
+  }
+};
+
+AddOnData.set('templateRules', zoneConfiguration);`,
+    testResponse: `{
+  "status": "success",
+  "configurationSaved": true,
+  "zonesConfigured": 3,
+  "brandGuidelineRules": 8,
+  "validationActive": true,
+  "timestamp": "2024-01-15T10:32:00Z"
+}`
+  }
+];
+
 const sampleApiCalls = [
   {
     title: "Get Template Metadata",
@@ -143,6 +245,13 @@ const ApiIntegrations = () => {
   const [webhookUrl, setWebhookUrl] = useState("");
   const [selectedIntegration, setSelectedIntegration] = useState<string>("adobe");
   const [syncAnimation, setSyncAnimation] = useState(false);
+  const [testingApi, setTestingApi] = useState<string | null>(null);
+  const [apiResponses, setApiResponses] = useState<{[key: string]: any}>({});
+  const [connectionStatus, setConnectionStatus] = useState<{[key: string]: boolean}>({
+    adobe: true,
+    figma: true,
+    slack: false
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -150,8 +259,34 @@ const ApiIntegrations = () => {
       setTimeout(() => setSyncAnimation(false), 2000);
     }, 5000);
 
-    return () => clearInterval(interval);
+    // Simulate connection status updates
+    const connectionInterval = setInterval(() => {
+      setConnectionStatus(prev => ({
+        ...prev,
+        adobe: Math.random() > 0.1, // 90% uptime
+        figma: Math.random() > 0.15, // 85% uptime
+        slack: Math.random() > 0.3   // 70% uptime
+      }));
+    }, 3000);
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(connectionInterval);
+    };
   }, []);
+
+  const handleTestApi = async (title: string, testResponse: string) => {
+    setTestingApi(title);
+    
+    // Simulate API call delay
+    setTimeout(() => {
+      setApiResponses(prev => ({
+        ...prev,
+        [title]: JSON.parse(testResponse)
+      }));
+      setTestingApi(null);
+    }, 1500);
+  };
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -316,43 +451,150 @@ const ApiIntegrations = () => {
           </TabsContent>
 
           <TabsContent value="api-calls" className="space-y-6">
-            <div className="grid lg:grid-cols-2 gap-6">
-              {sampleApiCalls.map((call, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Code className="w-5 h-5" />
-                      {call.title}
-                    </CardTitle>
-                    <Badge variant="outline" className="w-fit">
-                      {call.endpoint}
+            {/* Adobe SDK Integration Status */}
+            <Card className="border-primary/20 bg-primary/5">
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle className="flex items-center gap-2">
+                    <Code className="w-5 h-5" />
+                    Adobe Creative SDK Integration
+                  </CardTitle>
+                  <div className="flex items-center gap-2">
+                    <div className={`w-2 h-2 rounded-full ${connectionStatus.adobe ? 'bg-green-500' : 'bg-red-500'} animate-pulse`} />
+                    <Badge variant={connectionStatus.adobe ? "default" : "destructive"}>
+                      {connectionStatus.adobe ? "Connected" : "Disconnected"}
                     </Badge>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <Label className="text-sm font-medium mb-2 block">Request</Label>
-                      <div className="bg-muted rounded-lg p-3">
-                        <pre className="text-xs text-foreground overflow-x-auto">
-                          <code>{call.request}</code>
-                        </pre>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <Label className="text-sm font-medium mb-2 block">Response</Label>
-                      <div className="bg-muted rounded-lg p-3">
-                        <pre className="text-xs text-foreground overflow-x-auto">
-                          <code>{call.response}</code>
-                        </pre>
-                      </div>
-                    </div>
-                    
-                    <Button variant="outline" size="sm" className="w-full">
-                      Try in API Explorer
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Real-time connection to Adobe Creative Cloud APIs with live event monitoring
+                </p>
+              </CardHeader>
+              <CardContent>
+                <div className="grid md:grid-cols-3 gap-4 text-sm">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <span>Document Events: Active</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <span>UI Controls: Enabled</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-yellow-500" />
+                    <span>Asset Sync: Pending</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Adobe SDK API Calls */}
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Adobe Creative SDK API Examples</h3>
+                <div className="grid lg:grid-cols-1 gap-6">
+                  {adobeSdkApiCalls.map((call, index) => (
+                    <Card key={index} className="hover:shadow-lg transition-shadow">
+                      <CardHeader>
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <CardTitle className="flex items-center gap-2">
+                              <Code className="w-5 h-5" />
+                              {call.title}
+                            </CardTitle>
+                            <div className="flex gap-2 mt-2">
+                              <Badge variant="outline">{call.endpoint}</Badge>
+                              <Badge variant="secondary">{call.category}</Badge>
+                            </div>
+                          </div>
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            disabled={testingApi === call.title}
+                            onClick={() => handleTestApi(call.title, call.testResponse)}
+                            className="flex items-center gap-2"
+                          >
+                            {testingApi === call.title ? (
+                              <>
+                                <RefreshCw className="w-3 h-3 animate-spin" />
+                                Testing...
+                              </>
+                            ) : (
+                              "Test API"
+                            )}
+                          </Button>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div>
+                          <Label className="text-sm font-medium mb-2 block">Implementation</Label>
+                          <div className="bg-slate-900 rounded-lg p-4 border">
+                            <pre className="text-xs text-green-400 overflow-x-auto">
+                              <code>{call.code}</code>
+                            </pre>
+                          </div>
+                        </div>
+                        
+                        {apiResponses[call.title] && (
+                          <div className="animate-fade-in">
+                            <Label className="text-sm font-medium mb-2 block flex items-center gap-2">
+                              <CheckCircle className="w-4 h-4 text-green-500" />
+                              Live Response
+                            </Label>
+                            <div className="bg-green-950/20 border border-green-500/20 rounded-lg p-3">
+                              <pre className="text-xs text-green-300 overflow-x-auto">
+                                <code>{JSON.stringify(apiResponses[call.title], null, 2)}</code>
+                              </pre>
+                            </div>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold mb-4">REST API Examples</h3>
+                <div className="grid lg:grid-cols-2 gap-6">
+                  {sampleApiCalls.map((call, index) => (
+                    <Card key={index}>
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                          <Code className="w-5 h-5" />
+                          {call.title}
+                        </CardTitle>
+                        <Badge variant="outline" className="w-fit">
+                          {call.endpoint}
+                        </Badge>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div>
+                          <Label className="text-sm font-medium mb-2 block">Request</Label>
+                          <div className="bg-slate-900 rounded-lg p-3 border">
+                            <pre className="text-xs text-blue-300 overflow-x-auto">
+                              <code>{call.request}</code>
+                            </pre>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <Label className="text-sm font-medium mb-2 block">Response</Label>
+                          <div className="bg-slate-900 rounded-lg p-3 border">
+                            <pre className="text-xs text-green-300 overflow-x-auto">
+                              <code>{call.response}</code>
+                            </pre>
+                          </div>
+                        </div>
+                        
+                        <Button variant="outline" size="sm" className="w-full">
+                          Try in API Explorer
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
             </div>
           </TabsContent>
 
