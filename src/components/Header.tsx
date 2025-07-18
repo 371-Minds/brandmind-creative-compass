@@ -35,7 +35,7 @@ export const Header = ({ onStartOnboarding }: HeaderProps) => {
                 alt="BrandMind Logo" 
                 className="w-full h-full object-contain group-hover:rotate-12 transition-transform"
               />
-              <div className="absolute inset-0 bg-white/20 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-primary/10 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
             </div>
             <div>
               <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
