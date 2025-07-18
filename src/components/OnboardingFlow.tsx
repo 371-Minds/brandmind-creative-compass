@@ -8,7 +8,15 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CheckCircle, Upload, Users, Palette, Rocket, ArrowRight, ArrowLeft, Sparkles } from "lucide-react";
+import { CheckCircle, Upload, Users, Palette, Rocket, ArrowRight, ArrowLeft, Sparkles, Eye } from "lucide-react";
+
+// Import template preview images
+import corporatePresentationImg from "@/assets/template-corporate-presentation.jpg";
+import socialMediaKitImg from "@/assets/template-social-media-kit.jpg";
+import marketingFlyerImg from "@/assets/template-marketing-flyer.jpg";
+import emailNewsletterImg from "@/assets/template-email-newsletter.jpg";
+import businessCardImg from "@/assets/template-business-card.jpg";
+import websiteBannerImg from "@/assets/template-website-banner.jpg";
 
 interface OnboardingFlowProps {
   isOpen: boolean;
@@ -25,12 +33,48 @@ const STEPS = [
 ];
 
 const SAMPLE_TEMPLATES = [
-  { id: 1, name: "Corporate Presentation", category: "Presentations", thumbnail: "/placeholder.svg" },
-  { id: 2, name: "Social Media Kit", category: "Social", thumbnail: "/placeholder.svg" },
-  { id: 3, name: "Marketing Flyer", category: "Print", thumbnail: "/placeholder.svg" },
-  { id: 4, name: "Email Newsletter", category: "Email", thumbnail: "/placeholder.svg" },
-  { id: 5, name: "Business Card", category: "Print", thumbnail: "/placeholder.svg" },
-  { id: 6, name: "Website Banner", category: "Web", thumbnail: "/placeholder.svg" }
+  { 
+    id: 1, 
+    name: "Corporate Presentation", 
+    category: "Presentations", 
+    thumbnail: corporatePresentationImg,
+    description: "Professional slide templates with brand-compliant layouts"
+  },
+  { 
+    id: 2, 
+    name: "Social Media Kit", 
+    category: "Social", 
+    thumbnail: socialMediaKitImg,
+    description: "Instagram, Facebook, and Twitter post templates"
+  },
+  { 
+    id: 3, 
+    name: "Marketing Flyer", 
+    category: "Print", 
+    thumbnail: marketingFlyerImg,
+    description: "Eye-catching promotional materials for events and products"
+  },
+  { 
+    id: 4, 
+    name: "Email Newsletter", 
+    category: "Email", 
+    thumbnail: emailNewsletterImg,
+    description: "Responsive email templates with automated brand validation"
+  },
+  { 
+    id: 5, 
+    name: "Business Card", 
+    category: "Print", 
+    thumbnail: businessCardImg,
+    description: "Professional business cards with consistent brand elements"
+  },
+  { 
+    id: 6, 
+    name: "Website Banner", 
+    category: "Web", 
+    thumbnail: websiteBannerImg,
+    description: "Hero sections and promotional banners for websites"
+  }
 ];
 
 const TEAM_ROLES = [
@@ -197,35 +241,60 @@ export const OnboardingFlow = ({ isOpen, onClose }: OnboardingFlowProps) => {
               <h2 className="text-2xl font-bold text-foreground mb-2">Choose Starter Templates</h2>
               <p className="text-muted-foreground">Select templates that match your brand needs</p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 max-h-80 overflow-y-auto pr-2">
               {SAMPLE_TEMPLATES.map((template) => (
                 <Card
                   key={template.id}
-                  className={`cursor-pointer transition-all duration-200 hover:shadow-md ${
+                  className={`cursor-pointer transition-all duration-300 hover:shadow-lg group ${
                     selectedTemplates.includes(template.id) 
-                      ? 'ring-2 ring-primary bg-primary/5' 
-                      : 'hover:ring-1 hover:ring-border'
+                      ? 'ring-2 ring-primary bg-primary/5 shadow-md' 
+                      : 'hover:ring-1 hover:ring-border hover:bg-accent/5'
                   }`}
                   onClick={() => handleTemplateToggle(template.id)}
                 >
                   <CardContent className="p-4">
-                    <div className="aspect-video bg-muted rounded-lg mb-3 flex items-center justify-center">
-                      <span className="text-xs text-muted-foreground">Preview</span>
+                    <div className="flex gap-4">
+                      <div className="relative w-24 h-16 flex-shrink-0">
+                        <img 
+                          src={template.thumbnail} 
+                          alt={`${template.name} preview`}
+                          className="w-full h-full object-cover rounded-md border"
+                        />
+                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-md flex items-center justify-center">
+                          <Eye className="w-4 h-4 text-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between">
+                          <div className="space-y-1 flex-1">
+                            <h3 className="font-semibold text-sm text-foreground">{template.name}</h3>
+                            <p className="text-xs text-muted-foreground leading-relaxed">{template.description}</p>
+                            <Badge variant="secondary" className="text-xs">{template.category}</Badge>
+                          </div>
+                          {selectedTemplates.includes(template.id) && (
+                            <div className="flex-shrink-0 ml-2">
+                              <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                                <CheckCircle className="w-4 h-4 text-primary-foreground" />
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                    <div className="space-y-1">
-                      <h3 className="font-medium text-sm">{template.name}</h3>
-                      <Badge variant="secondary" className="text-xs">{template.category}</Badge>
-                    </div>
-                    {selectedTemplates.includes(template.id) && (
-                      <CheckCircle className="w-4 h-4 text-primary absolute top-2 right-2" />
-                    )}
                   </CardContent>
                 </Card>
               ))}
             </div>
-            <p className="text-sm text-muted-foreground text-center">
-              {selectedTemplates.length} template{selectedTemplates.length !== 1 ? 's' : ''} selected
-            </p>
+            <div className="text-center space-y-2">
+              <p className="text-sm text-muted-foreground">
+                {selectedTemplates.length} template{selectedTemplates.length !== 1 ? 's' : ''} selected
+              </p>
+              {selectedTemplates.length > 0 && (
+                <p className="text-xs text-primary">
+                  These templates will be customized with your brand colors and guidelines
+                </p>
+              )}
+            </div>
           </div>
         );
 
