@@ -29,8 +29,12 @@ export const Header = ({ onStartOnboarding }: HeaderProps) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-9 h-9 gradient-primary rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:shadow-glow transition-all duration-300 relative overflow-hidden">
-              <Zap className="text-white w-5 h-5 group-hover:rotate-12 transition-transform" />
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:shadow-glow transition-all duration-300 relative overflow-hidden">
+              <img 
+                src="/lovable-uploads/f903e1d0-775e-4937-abc3-17119ca65e40.png" 
+                alt="BrandMind Logo" 
+                className="w-full h-full object-contain group-hover:rotate-12 transition-transform"
+              />
               <div className="absolute inset-0 bg-white/20 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
             </div>
             <div>
