@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Menu, X, Zap } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 
 interface HeaderProps {
   onStartOnboarding?: () => void;
@@ -28,7 +28,7 @@ export const Header = ({ onStartOnboarding }: HeaderProps) => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link href="/" className="flex items-center space-x-3 group">
             <div className="w-9 h-9 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:shadow-glow transition-all duration-300 relative overflow-hidden">
             <img 
               src="/lovable-uploads/47579b90-4c85-42d7-aa4b-262a6982302b.png" 
@@ -50,7 +50,7 @@ export const Header = ({ onStartOnboarding }: HeaderProps) => {
             {navigation.map((item) => (
               <Link
                 key={item.name}
-                to={item.href}
+                href={item.href}
                 className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium rounded-lg hover:bg-accent/50 group"
               >
                 {item.name}
