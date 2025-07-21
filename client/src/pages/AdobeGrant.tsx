@@ -1,11 +1,9 @@
-
 const AdobeGrant = () => {
   return (
     <div style={{ 
       fontFamily: 'Inter, sans-serif',
       background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%)',
-      color: '#e5e7eb',
-      minHeight: '100vh'
+      color: '#e5e7eb'
     }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -63,532 +61,79 @@ const AdobeGrant = () => {
       
       {/* Header Section */}
       <div className="section">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="container mx-auto px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 brand-gradient rounded-2xl flex items-center justify-center">
-                <i className="fas fa-brain text-2xl text-white"></i>
-              </div>
-              <div className="text-left">
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  BrandMind
-                </h1>
-                <p className="text-lg text-gray-400">for Adobe Express</p>
+            <div className="flex items-center justify-center mb-8">
+              <div className="relative">
+                <div className="flex items-center space-x-4">
+                  {/* 371 Minds Logo */}
+                  <div className="relative w-24 h-16 flex items-center justify-center">
+                    <img src="371Minds.png" alt="371 Minds Logo" className="max-w-full max-h-full object-contain" />
+                  </div>
+                  <div className="text-left">
+                    <h1 className="text-4xl font-bold text-white">371 MINDS</h1>
+                    <p className="text-lg text-gray-300">Enterprise Intelligence Solutions</p>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Adobe Fund for Design Grant Application
+            <div className="brand-gradient text-transparent bg-clip-text">
+              <h1 className="text-6xl font-bold mb-4">BrandMind</h1>
+              <h2 className="text-3xl font-semibold mb-6">for Adobe Express</h2>
+            </div>
+            <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              AI-Powered Brand Intelligence Integration
+            </p>
+            <p className="text-lg text-gray-400 mt-4">Adobe Fund for Design - Grant Application Support Document</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Executive Summary & Problem */}
+      <div className="section">
+        <div className="container mx-auto px-8">
+          <div className="card rounded-2xl p-12">
+            <h2 className="text-4xl font-bold mb-8 text-center">
+              <span className="highlight-text">Executive Summary</span>
             </h2>
             
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-8">
-              Revolutionizing brand compliance for enterprise teams through intelligent AI-powered template validation 
-              and seamless Adobe Express integration
-            </p>
-            
-            <div className="flex gap-4 justify-center">
-              <span className="tech-badge px-4 py-2 rounded-full text-sm font-medium">🎯 Brand Intelligence</span>
-              <span className="tech-badge px-4 py-2 rounded-full text-sm font-medium">⚡ Real-time Validation</span>
-              <span className="tech-badge px-4 py-2 rounded-full text-sm font-medium">🔧 Adobe Integration</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Back to App Button */}
-      <div className="fixed top-4 left-4 z-50">
-        <a 
-          href="/" 
-          className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors"
-        >
-          <i className="fas fa-arrow-left"></i>
-          Back to BrandMind App
-        </a>
-      </div>
-
-      {/* Executive Summary */}
-      <div className="section">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="card rounded-2xl p-8 mb-12">
-            <h3 className="text-3xl font-bold mb-6 text-center">Executive Summary</h3>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h4 className="text-xl font-semibold mb-4 highlight-text">The Problem</h4>
-                <p className="text-gray-300 mb-6">
-                  Enterprise teams struggle with brand consistency across distributed content creation. 
-                  Manual brand guideline enforcement leads to 40% compliance failures, costly redesigns, 
-                  and diluted brand identity.
-                </p>
-                
-                <h4 className="text-xl font-semibold mb-4 highlight-text">Our Solution</h4>
-                <p className="text-gray-300">
-                  BrandMind provides intelligent, real-time brand compliance validation directly within 
-                  Adobe Express, preventing violations before they occur while maintaining creative freedom.
-                </p>
+                <h3 className="text-2xl font-semibold mb-6 text-white">The Enterprise Brand Compliance Crisis</h3>
+                <div className="space-y-4 text-lg">
+                  <p className="text-gray-300">Enterprise marketing teams face a critical challenge: maintaining brand consistency while enabling creative freedom.</p>
+                  <div className="metric-card rounded-xl p-6">
+                    <div className="text-3xl font-bold text-red-400 mb-2">$2.1M</div>
+                    <p className="text-gray-300">Annual cost of brand inconsistency per enterprise</p>
+                  </div>
+                  <div className="metric-card rounded-xl p-6">
+                    <div className="text-3xl font-bold text-yellow-400 mb-2">73%</div>
+                    <p className="text-gray-300">Of marketing teams struggle with brand compliance tools</p>
+                  </div>
+                </div>
               </div>
-              
               <div>
-                <h4 className="text-xl font-semibold mb-4 highlight-text">Market Opportunity</h4>
-                <div className="space-y-4">
-                  <div className="metric-card p-4 rounded-lg">
-                    <div className="text-2xl font-bold text-cyan-400">$2.8B</div>
-                    <div className="text-sm text-gray-400">Brand Management Software Market</div>
-                  </div>
-                  <div className="metric-card p-4 rounded-lg">
-                    <div className="text-2xl font-bold text-purple-400">67%</div>
-                    <div className="text-sm text-gray-400">Brands Report Consistency Issues</div>
-                  </div>
-                  <div className="metric-card p-4 rounded-lg">
-                    <div className="text-2xl font-bold text-indigo-400">$1.2M</div>
-                    <div className="text-sm text-gray-400">Average Annual Brand Compliance Cost</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Platform Foundation */}
-      <div className="section">
-        <div className="max-w-7xl mx-auto px-8">
-          <h3 className="text-3xl font-bold mb-12 text-center">Platform Foundation & Validation</h3>
-          
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            <div className="card rounded-xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-users text-green-400 text-xl"></i>
-                </div>
-                <h4 className="text-xl font-semibold">Proven User Base</h4>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span>Active Users</span>
-                  <span className="font-bold text-green-400">2,847</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Enterprise Clients</span>
-                  <span className="font-bold text-green-400">23</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Monthly Growth</span>
-                  <span className="font-bold text-green-400">+34%</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="card rounded-xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-chart-line text-blue-400 text-xl"></i>
-                </div>
-                <h4 className="text-xl font-semibold">Revenue Metrics</h4>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span>MRR</span>
-                  <span className="font-bold text-blue-400">$24,580</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>ARPU</span>
-                  <span className="font-bold text-blue-400">$127</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Churn Rate</span>
-                  <span className="font-bold text-blue-400">2.3%</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="card rounded-xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-trophy text-purple-400 text-xl"></i>
-                </div>
-                <h4 className="text-xl font-semibold">Success Metrics</h4>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span>Compliance Rate</span>
-                  <span className="font-bold text-purple-400">94.6%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Time Savings</span>
-                  <span className="font-bold text-purple-400">73%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>NPS Score</span>
-                  <span className="font-bold text-purple-400">8.7/10</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Technical Architecture */}
-      <div className="section">
-        <div className="max-w-7xl mx-auto px-8">
-          <h3 className="text-3xl font-bold mb-12 text-center">Technical Architecture & Adobe Integration</h3>
-          
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h4 className="text-2xl font-semibold mb-6 highlight-text">Core Technology Stack</h4>
-              <div className="space-y-4">
-                <div className="card rounded-lg p-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <i className="fab fa-react text-cyan-400 text-xl"></i>
-                    <span className="font-semibold">Frontend Framework</span>
-                  </div>
-                  <p className="text-gray-400 text-sm">React 18 with TypeScript for type-safe development</p>
-                </div>
-                
-                <div className="card rounded-lg p-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <i className="fas fa-server text-green-400 text-xl"></i>
-                    <span className="font-semibold">Backend Infrastructure</span>
-                  </div>
-                  <p className="text-gray-400 text-sm">Node.js with Express, PostgreSQL, Redis caching</p>
-                </div>
-                
-                <div className="card rounded-lg p-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <i className="fas fa-brain text-purple-400 text-xl"></i>
-                    <span className="font-semibold">AI/ML Pipeline</span>
-                  </div>
-                  <p className="text-gray-400 text-sm">TensorFlow.js for real-time brand element detection</p>
-                </div>
-                
-                <div className="card rounded-lg p-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <i className="fas fa-cloud text-blue-400 text-xl"></i>
-                    <span className="font-semibold">Cloud Platform</span>
-                  </div>
-                  <p className="text-gray-400 text-sm">AWS with auto-scaling, CDN, and global distribution</p>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="text-2xl font-semibold mb-6 highlight-text">Adobe Express Integration</h4>
-              <div className="card rounded-lg p-6">
-                <div className="space-y-6">
-                  <div>
-                    <h5 className="font-semibold mb-3 text-cyan-400">Add-On SDK Implementation</h5>
-                    <div className="bg-gray-900 rounded-lg p-4 text-sm font-mono">
-                      <div className="text-green-400">// Real-time validation hook</div>
-                      <div className="text-white">addOnUISdk.ready.then(() =&gt; {`{`}</div>
-                      <div className="text-white ml-4">initializeBrandValidation();</div>
-                      <div className="text-white ml-4">registerComplianceCallbacks();</div>
-                      <div className="text-white">{`}`});</div>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h5 className="font-semibold mb-3 text-purple-400">Template Zone Configuration</h5>
-                    <div className="bg-gray-900 rounded-lg p-4 text-sm font-mono">
-                      <div className="text-green-400">// Define brand zones</div>
-                      <div className="text-white">const zoneConfig = {`{`}</div>
-                      <div className="text-white ml-4">logoZone: {`{`} locked: true {`}`},</div>
-                      <div className="text-white ml-4">colorZone: {`{`} brandColors: true {`}`}</div>
-                      <div className="text-white">{`}`};</div>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h5 className="font-semibold mb-3 text-orange-400">Performance Metrics</h5>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="metric-card p-3 rounded text-center">
-                        <div className="text-xl font-bold text-orange-400">&lt; 50ms</div>
-                        <div className="text-xs text-gray-400">Validation Response</div>
-                      </div>
-                      <div className="metric-card p-3 rounded text-center">
-                        <div className="text-xl font-bold text-orange-400">99.9%</div>
-                        <div className="text-xs text-gray-400">Uptime SLA</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Business Model */}
-      <div className="section">
-        <div className="max-w-7xl mx-auto px-8">
-          <h3 className="text-3xl font-bold mb-12 text-center">Business Model & Pricing Strategy</h3>
-          
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="card rounded-xl p-6 border-l-4 border-green-400">
-              <h4 className="font-semibold text-green-400 mb-4">FREE Tier</h4>
-              <div className="text-3xl font-bold mb-4">$0<span className="text-lg text-gray-400">/month</span></div>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Basic brand validation</li>
-                <li>✓ 5 templates per month</li>
-                <li>✓ Standard support</li>
-                <li>✓ Adobe Express integration</li>
-              </ul>
-              <div className="mt-6 text-sm text-gray-400">
-                <strong>Target:</strong> Individual creators, small teams
-              </div>
-            </div>
-            
-            <div className="card rounded-xl p-6 border-l-4 border-blue-400 bg-gradient-to-br from-blue-500/10 to-purple-500/10">
-              <h4 className="font-semibold text-blue-400 mb-4">PROFESSIONAL</h4>
-              <div className="text-3xl font-bold mb-4">$29<span className="text-lg text-gray-400">/month</span></div>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Advanced AI validation</li>
-                <li>✓ Unlimited templates</li>
-                <li>✓ Custom brand guidelines</li>
-                <li>✓ Analytics dashboard</li>
-                <li>✓ Priority support</li>
-              </ul>
-              <div className="mt-6 text-sm text-gray-400">
-                <strong>Target:</strong> SMBs, marketing agencies
-              </div>
-            </div>
-            
-            <div className="card rounded-xl p-6 border-l-4 border-purple-400">
-              <h4 className="font-semibold text-purple-400 mb-4">ENTERPRISE</h4>
-              <div className="text-3xl font-bold mb-4">$199<span className="text-lg text-gray-400">/month</span></div>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>✓ Full compliance suite</li>
-                <li>✓ Role-based permissions</li>
-                <li>✓ API integrations</li>
-                <li>✓ Custom workflows</li>
-                <li>✓ Dedicated success manager</li>
-              </ul>
-              <div className="mt-6 text-sm text-gray-400">
-                <strong>Target:</strong> Large enterprises, Fortune 500
-              </div>
-            </div>
-          </div>
-          
-          <div className="mt-12 card rounded-xl p-8">
-            <h4 className="text-2xl font-semibold mb-6 text-center highlight-text">Revenue Projections</h4>
-            <div className="grid md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-400">Year 1</div>
-                <div className="text-3xl font-bold mt-2">$850K</div>
-                <div className="text-sm text-gray-400 mt-1">1,200 customers</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-blue-400">Year 2</div>
-                <div className="text-3xl font-bold mt-2">$2.8M</div>
-                <div className="text-sm text-gray-400 mt-1">4,500 customers</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-purple-400">Year 3</div>
-                <div className="text-3xl font-bold mt-2">$7.2M</div>
-                <div className="text-sm text-gray-400 mt-1">12,000 customers</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-cyan-400">Year 5</div>
-                <div className="text-3xl font-bold mt-2">$24M</div>
-                <div className="text-sm text-gray-400 mt-1">35,000 customers</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Team & Timeline */}
-      <div className="section">
-        <div className="max-w-7xl mx-auto px-8">
-          <h3 className="text-3xl font-bold mb-12 text-center">Team Expertise & Execution Timeline</h3>
-          
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h4 className="text-2xl font-semibold mb-6 highlight-text">Core Team</h4>
-              <div className="space-y-6">
-                <div className="card rounded-lg p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-xl font-bold">
-                      JD
-                    </div>
-                    <div>
-                      <h5 className="font-semibold text-lg">John Doe</h5>
-                      <p className="text-purple-400 mb-2">CEO & Technical Lead</p>
-                      <p className="text-sm text-gray-400">15+ years in enterprise software, former Adobe engineer, deep expertise in design tool APIs</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="card rounded-lg p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-cyan-500 rounded-full flex items-center justify-center text-xl font-bold">
-                      JS
-                    </div>
-                    <div>
-                      <h5 className="font-semibold text-lg">Jane Smith</h5>
-                      <p className="text-cyan-400 mb-2">CTO & AI Architect</p>
-                      <p className="text-sm text-gray-400">PhD in Computer Vision, specialized in real-time image analysis and brand recognition systems</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="card rounded-lg p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-xl font-bold">
-                      MJ
-                    </div>
-                    <div>
-                      <h5 className="font-semibold text-lg">Mike Johnson</h5>
-                      <p className="text-orange-400 mb-2">VP of Business Development</p>
-                      <p className="text-sm text-gray-400">Former enterprise sales at Canva and Figma, extensive Adobe partnership experience</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="text-2xl font-semibold mb-6 highlight-text">Execution Roadmap</h4>
-              <div className="space-y-6">
-                <div className="card rounded-lg p-6">
-                  <h5 className="font-semibold text-green-400 mb-3">Q1 2024: Foundation & MVP</h5>
-                  <ul className="text-sm text-gray-300 space-y-1">
-                    <li>• Complete Adobe Add-On SDK integration</li>
-                    <li>• Launch beta with 50 enterprise clients</li>
-                    <li>• Implement core validation algorithms</li>
-                    <li>• Establish baseline metrics and KPIs</li>
-                  </ul>
-                </div>
-                
-                <div className="card rounded-lg p-6">
-                  <h5 className="font-semibold text-blue-400 mb-3">Q2 2024: Scale & Enhancement</h5>
-                  <ul className="text-sm text-gray-300 space-y-1">
-                    <li>• Public launch with freemium model</li>
-                    <li>• Advanced AI validation features</li>
-                    <li>• Mobile responsiveness optimization</li>
-                    <li>• Customer success program launch</li>
-                  </ul>
-                </div>
-                
-                <div className="card rounded-lg p-6">
-                  <h5 className="font-semibold text-purple-400 mb-3">Q3-Q4 2024: Market Expansion</h5>
-                  <ul className="text-sm text-gray-300 space-y-1">
-                    <li>• Enterprise tier launch</li>
-                    <li>• API ecosystem development</li>
-                    <li>• International market entry</li>
-                    <li>• Series A funding preparation</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Strategic Partnership */}
-      <div className="section">
-        <div className="max-w-7xl mx-auto px-8">
-          <h3 className="text-3xl font-bold mb-12 text-center">Strategic Partnership with Adobe</h3>
-          
-          <div className="card rounded-2xl p-8">
-            <div className="grid lg:grid-cols-2 gap-12">
-              <div>
-                <h4 className="text-2xl font-semibold mb-6 highlight-text">Mutual Value Proposition</h4>
-                
-                <div className="space-y-6">
-                  <div className="border-l-4 border-blue-400 pl-6">
-                    <h5 className="font-semibold text-blue-400 mb-2">For Adobe Express</h5>
-                    <ul className="text-gray-300 space-y-1 text-sm">
-                      <li>• Enhanced enterprise adoption through compliance features</li>
-                      <li>• Increased user retention via intelligent assistance</li>
-                      <li>• Competitive differentiation in brand management space</li>
-                      <li>• Revenue share from premium feature upgrades</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="border-l-4 border-purple-400 pl-6">
-                    <h5 className="font-semibold text-purple-400 mb-2">For BrandMind</h5>
-                    <ul className="text-gray-300 space-y-1 text-sm">
-                      <li>• Access to Adobe's 20M+ Express user base</li>
-                      <li>• Official partnership validation and credibility</li>
-                      <li>• Co-marketing opportunities and joint sales efforts</li>
-                      <li>• Technical support and SDK advancement collaboration</li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <div className="mt-8">
-                  <h5 className="font-semibold mb-4 text-cyan-400">Grant Utilization Plan</h5>
+                <h3 className="text-2xl font-semibold mb-6 text-white">The BrandMind Solution</h3>
+                <div className="space-y-4 text-lg text-gray-300">
+                  <p>BrandMind transforms brand compliance from a creative constraint into a creative catalyst through intelligent template systems with:</p>
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-300">Development & Integration</span>
-                      <span className="font-semibold">60% ($150K)</span>
+                    <div className="flex items-center space-x-3">
+                      <i className="fas fa-lock text-red-400"></i>
+                      <span>Zone-based editing controls</span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-300">Marketing & User Acquisition</span>
-                      <span className="font-semibold">25% ($62.5K)</span>
+                    <div className="flex items-center space-x-3">
+                      <i className="fas fa-users text-blue-400"></i>
+                      <span>Role-based permissions</span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-300">Operations & Infrastructure</span>
-                      <span className="font-semibold">15% ($37.5K)</span>
+                    <div className="flex items-center space-x-3">
+                      <i className="fas fa-brain text-purple-400"></i>
+                      <span>Real-time AI compliance validation</span>
                     </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h4 className="text-2xl font-semibold mb-6 highlight-text">Success Metrics & KPIs</h4>
-                
-                <div className="space-y-6">
-                  <div className="metric-card rounded-lg p-6">
-                    <h5 className="font-semibold text-green-400 mb-4">6-Month Targets</h5>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <div className="text-2xl font-bold text-green-400">10K+</div>
-                        <div className="text-sm text-gray-400">Active Users</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-green-400">500+</div>
-                        <div className="text-sm text-gray-400">Enterprise Clients</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-green-400">95%</div>
-                        <div className="text-sm text-gray-400">Compliance Rate</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-green-400">$500K</div>
-                        <div className="text-sm text-gray-400">ARR Target</div>
-                      </div>
+                    <div className="flex items-center space-x-3">
+                      <i className="fas fa-mouse-pointer text-green-400"></i>
+                      <span>Drag-and-drop approved brand assets</span>
                     </div>
                   </div>
-                  
-                  <div className="metric-card rounded-lg p-6">
-                    <h5 className="font-semibold text-purple-400 mb-4">12-Month Vision</h5>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <div className="text-2xl font-bold text-purple-400">50K+</div>
-                        <div className="text-sm text-gray-400">Global Users</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-purple-400">2K+</div>
-                        <div className="text-sm text-gray-400">Enterprise Accounts</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-purple-400">$2.5M</div>
-                        <div className="text-sm text-gray-400">Annual Revenue</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-purple-400">#1</div>
-                        <div className="text-sm text-gray-400">Brand Compliance Tool</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-8 p-6 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-lg border border-purple-400/30">
-                  <h5 className="font-semibold text-purple-400 mb-3">Partnership Commitment</h5>
-                  <p className="text-gray-300 text-sm">
-                    We commit to exclusive Adobe Express integration for brand compliance features, 
-                    ensuring a seamless user experience and maximum value realization for both platforms.
-                  </p>
                 </div>
               </div>
             </div>
@@ -596,41 +141,370 @@ const AdobeGrant = () => {
         </div>
       </div>
 
-      {/* Contact & Next Steps */}
+      {/* BrandMind Platform - Market Validation */}
       <div className="section">
-        <div className="max-w-4xl mx-auto px-8 text-center">
+        <div className="container mx-auto px-8">
           <div className="card rounded-2xl p-12">
-            <h3 className="text-3xl font-bold mb-6">Ready to Transform Brand Compliance</h3>
-            <p className="text-xl text-gray-300 mb-8">
-              Join us in revolutionizing how enterprise teams maintain brand consistency 
-              while empowering creative freedom through intelligent AI assistance.
-            </p>
+            <h2 className="text-4xl font-bold mb-8 text-center">
+              <span className="highlight-text">Platform Foundation</span> & Market Validation
+            </h2>
             
-            <div className="flex flex-wrap gap-6 justify-center mb-8">
-              <div className="flex items-center gap-3">
-                <i className="fas fa-envelope text-blue-400 text-xl"></i>
-                <span className="text-gray-300">partnerships@brandmind.ai</span>
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="metric-card rounded-xl p-8 text-center">
+                <div className="text-4xl font-bold text-green-400 mb-4">✓ Built</div>
+                <h4 className="text-xl font-semibold text-white mb-2">Proven Technology</h4>
+                <p className="text-gray-300">Full BrandMind platform demonstrates our technical capabilities and enterprise-grade thinking</p>
               </div>
-              <div className="flex items-center gap-3">
-                <i className="fas fa-phone text-green-400 text-xl"></i>
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+              <div className="metric-card rounded-xl p-8 text-center">
+                <div className="text-4xl font-bold text-blue-400 mb-4">✓ Validated</div>
+                <h4 className="text-xl font-semibold text-white mb-2">Market Demand</h4>
+                <p className="text-gray-300">Enterprise feedback confirms strong demand for intelligent brand compliance solutions</p>
               </div>
-              <div className="flex items-center gap-3">
-                <i className="fab fa-linkedin text-blue-400 text-xl"></i>
-                <span className="text-gray-300">linkedin.com/company/brandmind</span>
+              <div className="metric-card rounded-xl p-8 text-center">
+                <div className="text-4xl font-bold text-purple-400 mb-4">✓ Ready</div>
+                <h4 className="text-xl font-semibold text-white mb-2">Adobe Integration</h4>
+                <p className="text-gray-300">BrandMind platform has fully functing Adobe Express API integration. Ready to build inside Adobe Express Add-Ons.</p>
               </div>
             </div>
             
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a href="/" className="px-8 py-3 brand-gradient rounded-lg font-semibold text-white hover:opacity-90 transition-opacity">
-                Experience Live Demo
-              </a>
-              <a href="#" className="px-8 py-3 border border-purple-400 text-purple-400 rounded-lg font-semibold hover:bg-purple-400/10 transition-colors">
-                Schedule Partnership Call
-              </a>
+            <div className="bg-gray-800 rounded-xl p-8">
+              <h3 className="text-2xl font-semibold text-white mb-6 text-center">Strategic Positioning</h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-xl font-semibold text-purple-400 mb-4">Existing Platform</h4>
+                  <ul className="space-y-2 text-gray-300">
+                    <li>• Comprehensive brand management suite</li>
+                    <li>• Enterprise customer validation</li>
+                    <li>• Standalone SaaS revenue model</li>
+                    <li>• Platform-agnostic architecture</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-green-400 mb-4">Proposed Adobe Add-on</h4>
+                  <ul className="space-y-2 text-gray-300">
+                    <li>• Focused creative workflow integration</li>
+                    <li>• Adobe Express marketplace distribution</li>
+                    <li>• Freemium adoption model</li>
+                    <li>• Strategic partnership opportunity</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Adobe Express Add-on - Technical Vision */}
+      <div className="section">
+        <div className="container mx-auto px-8">
+          <div className="card rounded-2xl p-12">
+            <h2 className="text-4xl font-bold mb-8 text-center">
+              <span className="highlight-text">Adobe Express Integration</span>
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-12 mb-12">
+              <div>
+                <h3 className="text-2xl font-semibold text-white mb-6">Technical Architecture</h3>
+                <div className="space-y-4">
+                  <div className="tech-badge rounded-lg p-4">
+                    <h4 className="font-semibold text-blue-400 mb-2">AddOnData API</h4>
+                    <p className="text-gray-300 text-sm">Store template rules and brand guidelines with persistent metadata</p>
+                  </div>
+                  <div className="tech-badge rounded-lg p-4">
+                    <h4 className="font-semibold text-green-400 mb-2">Document Change Detection</h4>
+                    <p className="text-gray-300 text-sm">Real-time compliance monitoring and validation</p>
+                  </div>
+                  <div className="tech-badge rounded-lg p-4">
+                    <h4 className="font-semibold text-purple-400 mb-2">Text Styling APIs</h4>
+                    <p className="text-gray-300 text-sm">Enforce brand-approved fonts, colors, and formatting</p>
+                  </div>
+                  <div className="tech-badge rounded-lg p-4">
+                    <h4 className="font-semibold text-yellow-400 mb-2">OAuth Integration</h4>
+                    <p className="text-gray-300 text-sm">Connect to external brand asset libraries and user management</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold text-white mb-6">User Experience Flow</h3>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-sm font-bold">1</div>
+                    <div>
+                      <h4 className="font-semibold text-white">Create in Express</h4>
+                      <p className="text-gray-300 text-sm">User creates content (flyer, social post, presentation)</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-sm font-bold">2</div>
+                    <div>
+                      <h4 className="font-semibold text-white">AI Analysis</h4>
+                      <p className="text-gray-300 text-sm">BrandMind analyzes document against brand guidelines</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-sm font-bold">3</div>
+                    <div>
+                      <h4 className="font-semibold text-white">Smart Feedback</h4>
+                      <p className="text-gray-300 text-sm">Real-time compliance score and improvement suggestions</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-sm font-bold">4</div>
+                    <div>
+                      <h4 className="font-semibold text-white">Auto-Fix</h4>
+                      <p className="text-gray-300 text-sm">One-click compliance corrections or manual adjustments</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-xl p-8">
+              <h3 className="text-2xl font-semibold text-white mb-4 text-center">Feasibility Validation</h3>
+              <p className="text-gray-300 text-lg text-center max-w-4xl mx-auto">
+                We have successfully prototyped core functionality in Adobe's APIs, demonstrating zone controls, compliance checking, and asset integration. The technical foundation is proven and ready for production development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Market Opportunity & Business Model */}
+      <div className="section">
+        <div className="container mx-auto px-8">
+          <div className="card rounded-2xl p-12">
+            <h2 className="text-4xl font-bold mb-8 text-center">
+              <span className="highlight-text">Market Opportunity</span> & Business Model
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="metric-card rounded-xl p-8 text-center">
+                <div className="text-4xl font-bold text-green-400 mb-4">$127B</div>
+                <h4 className="text-xl font-semibold text-white mb-2">Creative Software Market</h4>
+                <p className="text-gray-300">Global market size growing at 8.5% CAGR, driven by enterprise digital transformation</p>
+              </div>
+              <div className="metric-card rounded-xl p-8 text-center">
+                <div className="text-4xl font-bold text-blue-400 mb-4">$2.1M</div>
+                <h4 className="text-xl font-semibold text-white mb-2">Brand Inconsistency Cost</h4>
+                <p className="text-gray-300">Annual cost per enterprise from poor brand compliance and creative workflow inefficiencies</p>
+              </div>
+              <div className="metric-card rounded-xl p-8 text-center">
+                <div className="text-4xl font-bold text-purple-400 mb-4">73%</div>
+                <h4 className="text-xl font-semibold text-white mb-2">Market Gap</h4>
+                <p className="text-gray-300">Of enterprises lack effective brand compliance tools for their creative teams</p>
+              </div>
+            </div>
+            
+            {/* Add the rest of the Market Opportunity content here, continuing from the original HTML */}
+          </div>
+        </div>
+      </div>
+
+      {/* Team & Execution Capability */}
+      <div className="section">
+        <div className="container mx-auto px-8">
+          <div className="card rounded-2xl p-12">
+            <h2 className="text-4xl font-bold mb-8 text-center">
+              <span className="highlight-text">Team & Execution</span> Capability
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-semibold text-white mb-6">Leadership Team</h3>
+                <div className="space-y-6">
+                  <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-xl p-6">
+                    <h4 className="text-xl font-semibold text-blue-400 mb-3">Enterprise Intelligence Expertise</h4>
+                    <p className="text-gray-300 mb-3">15+ years experience designing and implementing enterprise knowledge systems for Fortune 500 companies.</p>
+                    <div className="flex items-center space-x-2">
+                      <span className="tech-badge px-3 py-1 rounded-full text-xs">Enterprise Architecture</span>
+                      <span className="tech-badge px-3 py-1 rounded-full text-xs">Knowledge Systems</span>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-xl p-6">
+                    <h4 className="text-xl font-semibold text-green-400 mb-3">Digital Transformation Expertise</h4>
+                    <p className="text-gray-300 mb-3">Led enterprise digital transformation initiatives, specializing in API-driven knowledge systems that bridge organizational gaps.</p>
+                    <div className="flex items-center space-x-2">
+                      <span className="tech-badge px-3 py-1 rounded-full text-xs">API Architecture</span>
+                      <span className="tech-badge px-3 py-1 rounded-full text-xs">Enterprise Integration</span>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-xl p-6">
+                    <h4 className="text-xl font-semibold text-purple-400 mb-3">Platform Development</h4>
+                    <p className="text-gray-300 mb-3">3+ years focused development experience building scalable SaaS platforms with modern web technologies and AI integration.</p>
+                    <div className="flex items-center space-x-2">
+                      <span className="tech-badge px-3 py-1 rounded-full text-xs">React/TypeScript</span>
+                      <span className="tech-badge px-3 py-1 rounded-full text-xs">SaaS Architecture</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-2xl font-semibold text-white mb-6">Execution Evidence</h3>
+                <div className="space-y-6">
+                  <div className="metric-card rounded-xl p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <h4 className="text-lg font-semibold text-white">BrandMind Platform</h4>
+                      <span className="bg-green-500 text-black px-2 py-1 rounded-full text-xs font-bold">BUILT</span>
+                    </div>
+                    <p className="text-gray-300 text-sm mb-3">Professional-grade brand management interface with enterprise-level UX/UI design and functionality.</p>
+                    <div className="text-blue-400 text-sm font-medium">
+                      <i className="fas fa-external-link-alt mr-2"></i>
+                      preview--brandmind-creative-compass.lovable.app
+                    </div>
+                  </div>
+                  
+                  <div className="metric-card rounded-xl p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <h4 className="text-lg font-semibold text-white">371 Minds Ecosystem</h4>
+                      <span className="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold">IN-PROGRESS</span>
+                    </div>
+                    <p className="text-gray-300 text-sm mb-3">Comprehensive enterprise intelligence platform including StackSense, ModuMind, and BrandMind solutions.</p>
+                    <ul className="text-gray-400 text-xs space-y-1">
+                      <li>• Multi-product platform architecture</li>
+                      <li>• Enterprise customer validation</li>
+                      <li>• Scalable business model</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="metric-card rounded-xl p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <h4 className="text-lg font-semibold text-white">Technical Prototyping</h4>
+                      <span className="bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-bold">VALIDATED</span>
+                    </div>
+                    <p className="text-gray-300 text-sm">Adobe Express Add-on core functionality successfully prototyped in Code Playground, proving technical feasibility.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-12 bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-xl p-8 text-center">
+              <h3 className="text-2xl font-semibold text-white mb-4">Unique Value Proposition</h3>
+              <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+                Unlike typical development teams, we combine <span className="highlight-text">deep enterprise systems expertise</span> with <span className="highlight-text">proven execution ability</span> and <span className="highlight-text">validated market understanding</span>. This isn't just another add-on - it's enterprise-grade brand intelligence built by a team that understands how large organizations actually work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Partnership Vision & Timeline */}
+      <div className="section">
+        <div className="container mx-auto px-8">
+          <div className="card rounded-2xl p-12">
+            <h2 className="text-4xl font-bold mb-8 text-center">
+              <span className="highlight-text">Strategic Partnership</span> & Timeline
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-12 mb-12">
+              <div>
+                <h3 className="text-2xl font-semibold text-white mb-6">Adobe Partnership Vision</h3>
+                <div className="space-y-6">
+                  <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-xl p-6">
+                    <h4 className="text-lg font-semibold text-blue-400 mb-3">Market Expansion</h4>
+                    <p className="text-gray-300">Transform Adobe Express into the enterprise creative platform of choice by solving the #1 barrier to adoption: brand compliance.</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-xl p-6">
+                    <h4 className="text-lg font-semibold text-green-400 mb-3">Ecosystem Growth</h4>
+                    <p className="text-gray-300">Establish Adobe as the leader in AI-powered creative governance, setting the standard for intelligent design tools.</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-xl p-6">
+                    <h4 className="text-lg font-semibold text-purple-400 mb-3">Revenue Enhancement</h4>
+                    <p className="text-gray-300">Create new high-value enterprise revenue streams while increasing platform stickiness and user engagement.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-2xl font-semibold text-white mb-6">Development Timeline</h3>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center font-bold">July</div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-white">Core Development</h4>
+                      <p className="text-gray-300">AI analysis engine, compliance scoring, and zone-based controls</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center font-bold">Aug</div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-white">Beta Testing</h4>
+                      <p className="text-gray-300">Enterprise customer validation, UI refinement, and performance optimization</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center font-bold">Sept</div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-white">Marketplace Launch</h4>
+                      <p className="text-gray-300">Adobe Express marketplace deployment with full feature set</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center font-bold">Oct</div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-white">Growth & Scale</h4>
+                      <p className="text-gray-300">Enterprise sales enablement and go-to-market acceleration</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-xl p-8 mb-8">
+              <h3 className="text-2xl font-semibold text-white mb-6 text-center">Success Metrics</h3>
+              <div className="grid md:grid-cols-4 gap-6 text-center">
+                <div>
+                  <div className="text-3xl font-bold text-green-400 mb-2">1K+</div>
+                  <p className="text-gray-300 text-sm">Active Users by Month 3</p>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-blue-400 mb-2">15%</div>
+                  <p className="text-gray-300 text-sm">Premium Conversion Rate</p>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-purple-400 mb-2">25</div>
+                  <p className="text-gray-300 text-sm">Enterprise Customers</p>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-yellow-400 mb-2">4.5+</div>
+                  <p className="text-gray-300 text-sm">Marketplace Rating</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <h3 className="text-3xl font-bold text-white mb-6">
+                Transform Brand Compliance from 
+                <span className="text-red-400">Creative Constraint</span> to 
+                <span className="highlight-text">Creative Catalyst</span>
+              </h3>
+              <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-8">
+                BrandMind for Adobe Express represents more than just an add-on - it's a strategic partnership opportunity to establish Adobe as the definitive leader in AI-powered creative governance.
+              </p>
+              <div className="brand-gradient rounded-xl p-8">
+                <p className="text-2xl font-bold text-white">
+                  Ready to revolutionize enterprise creativity together?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="py-8 text-center">
+        <div className="flex items-center justify-center space-x-4 mb-4">
+          <div className="relative w-24 h-16 flex items-center justify-center">
+            <img src="371Minds.png" alt="371 Minds Logo" className="max-w-full max-h-full object-contain" />
+          </div>
+          <div>
+            <p className="text-lg font-semibold text-white">371 MINDS</p>
+            <p className="text-sm text-gray-400">Enterprise Intelligence Solutions</p>
+          </div>
+        </div>
+        <p className="text-gray-400 text-sm">© 2025 371 Minds. Adobe Fund for Design Grant Application.</p>
       </div>
     </div>
   );
