@@ -278,7 +278,7 @@ const AdobeGrant = () => {
                     <h5 className="font-semibold mb-3 text-cyan-400">Add-On SDK Implementation</h5>
                     <div className="bg-gray-900 rounded-lg p-4 text-sm font-mono">
                       <div className="text-green-400">// Real-time validation hook</div>
-                      <div className="text-white">addOnUISdk.ready.then(() => {`{`}</div>
+                      <div className="text-white">addOnUISdk.ready.then(() =&gt; {`{`}</div>
                       <div className="text-white ml-4">initializeBrandValidation();</div>
                       <div className="text-white ml-4">registerComplianceCallbacks();</div>
                       <div className="text-white">{`}`});</div>
@@ -300,7 +300,7 @@ const AdobeGrant = () => {
                     <h5 className="font-semibold mb-3 text-orange-400">Performance Metrics</h5>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="metric-card p-3 rounded text-center">
-                        <div className="text-xl font-bold text-orange-400">< 50ms</div>
+                        <div className="text-xl font-bold text-orange-400">&lt; 50ms</div>
                         <div className="text-xs text-gray-400">Validation Response</div>
                       </div>
                       <div className="metric-card p-3 rounded text-center">
