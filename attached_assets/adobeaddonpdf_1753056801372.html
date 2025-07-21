@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrandMind for Adobe Express - Grant Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            color: #e5e7eb;
+        }
+        
+        .brand-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+        }
+        
+        .section {
+            min-height: 100vh;
+            padding: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .card {
+            background: rgba(15, 15, 35, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+        
+        .tech-badge {
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+        
+        .highlight-text {
+            color: #8b5cf6;
+            font-weight: 600;
+        }
+        
+        .network-node {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .node-blue { background: #6366f1; }
+        .node-green { background: #10b981; }
+        .node-orange { background: #f59e0b; }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #6366f1 50%, transparent 100%);
+            margin: 3rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="section">
+        <div class="container mx-auto px-8">
+            <div class="text-center mb-16">
+                <div class="flex items-center justify-center mb-8">
+                    <div class="relative">
+                        <div class="flex items-center space-x-4">
+                            <!-- 371 Minds Logo -->
+                            <div class="relative w-24 h-16 flex items-center justify-center">
+                                <img src="371Minds.png" alt="371 Minds Logo" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div class="text-left">
+                                <h1 class="text-4xl font-bold text-white">371 MINDS</h1>
+                                <p class="text-lg text-gray-300">Enterprise Intelligence Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand-gradient text-transparent bg-clip-text">
+                    <h1 class="text-6xl font-bold mb-4">BrandMind</h1>
+                    <h2 class="text-3xl font-semibold mb-6">for Adobe Express</h2>
+                </div>
+                <p class="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                    AI-Powered Brand Intelligence Integration
+                </p>
+                <p class="text-lg text-gray-400 mt-4">Adobe Fund for Design - Grant Application Support Document</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Executive Summary & Problem -->
+    <div class="section">
+        <div class="container mx-auto px-8">
+            <div class="card rounded-2xl p-12">
+                <h2 class="text-4xl font-bold mb-8 text-center">
+                    <span class="highlight-text">Executive Summary</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-white">The Enterprise Brand Compliance Crisis</h3>
+                        <div class="space-y-4 text-lg">
+                            <p class="text-gray-300">Enterprise marketing teams face a critical challenge: maintaining brand consistency while enabling creative freedom.</p>
+                            <div class="metric-card rounded-xl p-6">
+                                <div class="text-3xl font-bold text-red-400 mb-2">$2.1M</div>
+                                <p class="text-gray-300">Annual cost of brand inconsistency per enterprise</p>
+                            </div>
+                            <div class="metric-card rounded-xl p-6">
+                                <div class="text-3xl font-bold text-yellow-400 mb-2">73%</div>
+                                <p class="text-gray-300">Of marketing teams struggle with brand compliance tools</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-white">The BrandMind Solution</h3>
+                        <div class="space-y-4 text-lg text-gray-300">
+                            <p>BrandMind transforms brand compliance from a creative constraint into a creative catalyst through intelligent template systems with:</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-lock text-red-400"></i>
+                                    <span>Zone-based editing controls</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-users text-blue-400"></i>
+                                    <span>Role-based permissions</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-brain text-purple-400"></i>
+                                    <span>Real-time AI compliance validation</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-mouse-pointer text-green-400"></i>
+                                    <span>Drag-and-drop approved brand assets</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BrandMind Platform - Market Validation -->
+    <div class="section">
+        <div class="container mx-auto px-8">
+            <div class="card rounded-2xl p-12">
+                <h2 class="text-4xl font-bold mb-8 text-center">
+                    <span class="highlight-text">Platform Foundation</span> & Market Validation
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="metric-card rounded-xl p-8 text-center">
+                        <div class="text-4xl font-bold text-green-400 mb-4">✓ Built</div>
+                        <h4 class="text-xl font-semibold text-white mb-2">Proven Technology</h4>
+                        <p class="text-gray-300">Full BrandMind platform demonstrates our technical capabilities and enterprise-grade thinking</p>
+                    </div>
+                    <div class="metric-card rounded-xl p-8 text-center">
+                        <div class="text-4xl font-bold text-blue-400 mb-4">✓ Validated</div>
+                        <h4 class="text-xl font-semibold text-white mb-2">Market Demand</h4>
+                        <p class="text-gray-300">Enterprise feedback confirms strong demand for intelligent brand compliance solutions</p>
+                    </div>
+                    <div class="metric-card rounded-xl p-8 text-center">
+                        <div class="text-4xl font-bold text-purple-400 mb-4">✓ Ready</div>
+                        <h4 class="text-xl font-semibold text-white mb-2">Adobe Integration</h4>
+                        <p class="text-gray-300">BrandMind platform has fully functing Adobe Express API integration. Ready to build inside Adobe Express Add-Ons.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8">
+                    <h3 class="text-2xl font-semibold text-white mb-6 text-center">Strategic Positioning</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-semibold text-purple-400 mb-4">Existing Platform</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Comprehensive brand management suite</li>
+                                <li>• Enterprise customer validation</li>
+                                <li>• Standalone SaaS revenue model</li>
+                                <li>• Platform-agnostic architecture</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-green-400 mb-4">Proposed Adobe Add-on</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Focused creative workflow integration</li>
+                                <li>• Adobe Express marketplace distribution</li>
+                                <li>• Freemium adoption model</li>
+                                <li>• Strategic partnership opportunity</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adobe Express Add-on - Technical Vision -->
+    <div class="section">
+        <div class="container mx-auto px-8">
+            <div class="card rounded-2xl p-12">
+                <h2 class="text-4xl font-bold mb-8 text-center">
+                    <span class="highlight-text">Adobe Express Integration</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 mb-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-6">Technical Architecture</h3>
+                        <div class="space-y-4">
+                            <div class="tech-badge rounded-lg p-4">
+                                <h4 class="font-semibold text-blue-400 mb-2">AddOnData API</h4>
+                                <p class="text-gray-300 text-sm">Store template rules and brand guidelines with persistent metadata</p>
+                            </div>
+                            <div class="tech-badge rounded-lg p-4">
+                                <h4 class="font-semibold text-green-400 mb-2">Document Change Detection</h4>
+                                <p class="text-gray-300 text-sm">Real-time compliance monitoring and validation</p>
+                            </div>
+                            <div class="tech-badge rounded-lg p-4">
+                                <h4 class="font-semibold text-purple-400 mb-2">Text Styling APIs</h4>
+                                <p class="text-gray-300 text-sm">Enforce brand-approved fonts, colors, and formatting</p>
+                            </div>
+                            <div class="tech-badge rounded-lg p-4">
+                                <h4 class="font-semibold text-yellow-400 mb-2">OAuth Integration</h4>
+                                <p class="text-gray-300 text-sm">Connect to external brand asset libraries and user management</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-6">User Experience Flow</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-sm font-bold">1</div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Create in Express</h4>
+                                    <p class="text-gray-300 text-sm">User creates content (flyer, social post, presentation)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-sm font-bold">2</div>
+                                <div>
+                                    <h4 class="font-semibold text-white">AI Analysis</h4>
+                                    <p class="text-gray-300 text-sm">BrandMind analyzes document against brand guidelines</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-sm font-bold">3</div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Smart Feedback</h4>
+                                    <p class="text-gray-300 text-sm">Real-time compliance score and improvement suggestions</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-sm font-bold">4</div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Auto-Fix</h4>
+                                    <p class="text-gray-300 text-sm">One-click compliance corrections or manual adjustments</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-xl p-8">
+                    <h3 class="text-2xl font-semibold text-white mb-4 text-center">Feasibility Validation</h3>
+                    <p class="text-gray-300 text-lg text-center max-w-4xl mx-auto">
+                        We have successfully prototyped core functionality in Adobe's APIs, demonstrating zone controls, compliance checking, and asset integration. The technical foundation is proven and ready for production development.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Market Opportunity & Business Model -->
+    <div class="section">
+        <div class="container mx-auto px-8">
+            <div class="card rounded-2xl p-12">
+                <h2 class="text-4xl font-bold mb-8 text-center">
+                    <span class="highlight-text">Market Opportunity</span> & Business Model
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="metric-card rounded-xl p-8 text-center">
+                        <div class="text-4xl font-bold text-green-400 mb-4">50K+</div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Target Enterprises</h4>
+                        <p class="text-gray-300">Marketing teams using Adobe Express</p>
+                    </div>
+                    <div class="metric-card rounded-xl p-8 text-center">
+                        <div class="text-4xl font-bold text-blue-400 mb-4">$2.3B</div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Total Market</h4>
+                        <p class="text-gray-300">Brand management software market</p>
+                    </div>
+                    <div class="metric-card rounded-xl p-8 text-center">
+                        <div class="text-4xl font-bold text-purple-400 mb-4">89%</div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Market Demand</h4>
+                        <p class="text-gray-300">Want creative tools with built-in governance</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 rounded-xl p-8">
+                        <h3 class="text-2xl font-semibold text-white mb-6">Freemium Business Model</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-green-400 pl-4">
+                                <h4 class="font-semibold text-green-400">FREE Tier</h4>
+                                <p class="text-gray-300 text-sm">Basic brand compliance checking (3 colors, 1 logo, simple feedback)</p>
+                            </div>
+                            <div class="border-l-4 border-blue-400 pl-4">
+                                <h4 class="font-semibold text-blue-400">PREMIUM - $9.99/month</h4>
+                                <p class="text-gray-300 text-sm">Advanced AI guidance, custom brand rules, compliance analytics</p>
+                            </div>
+                            <div class="border-l-4 border-purple-400 pl-4">
+                                <h4 class="font-semibold text-purple-400">ENTERPRISE - $49/user/month</h4>
+                                <p class="text-gray-300 text-sm">Team management, audit trails, API integrations, custom training</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-xl p-8">
+                        <h3 class="text-2xl font-semibold text-white mb-6">Strategic Value for Adobe</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-arrow-up text-green-400 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-green-400">Enterprise Adoption</h4>
+                                    <p class="text-gray-300 text-sm">Expands Express into enterprise accounts</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-shield-alt text-blue-400 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400">Platform Differentiation</h4>
+                                    <p class="text-gray-300 text-sm">Unique advantage over competitors like Canva Pro</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-link text-purple-400 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400">User Retention</h4>
+                                    <p class="text-gray-300 text-sm">Increases platform stickiness and engagement</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Credibility & Execution Proof -->
+    <div class="section">
+        <div class="container mx-auto px-8">
+            <div class="card rounded-2xl p-12">
+                <h2 class="text-4xl font-bold mb-8 text-center">
+                    <span class="highlight-text">Team Expertise</span> & Execution Proof
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-6">Leadership Background</h3>
+                        <div class="space-y-6">
+                            <div class="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-xl p-6">
+                                <h4 class="text-xl font-semibold text-blue-400 mb-3">Enterprise Systems Architecture</h4>
+                                <p class="text-gray-300 mb-3">Pioneered knowledge graph systems for NASA, transforming how enterprise data flows and connects across organizational silos.</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="tech-badge px-3 py-1 rounded-full text-xs">Knowledge Graphs</span>
+                                    <span class="tech-badge px-3 py-1 rounded-full text-xs">NASA</span>
+                                    <span class="tech-badge px-3 py-1 rounded-full text-xs">Enterprise AI</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-xl p-6">
+                                <h4 class="text-xl font-semibold text-green-400 mb-3">Digital Transformation Expertise</h4>
+                                <p class="text-gray-300 mb-3">Led enterprise digital transformation initiatives, specializing in API-driven knowledge systems that bridge organizational gaps.</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="tech-badge px-3 py-1 rounded-full text-xs">API Architecture</span>
+                                    <span class="tech-badge px-3 py-1 rounded-full text-xs">Enterprise Integration</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-xl p-6">
+                                <h4 class="text-xl font-semibold text-purple-400 mb-3">Platform Development</h4>
+                                <p class="text-gray-300 mb-3">3+ years focused development experience building scalable SaaS platforms with modern web technologies and AI integration.</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="tech-badge px-3 py-1 rounded-full text-xs">React/TypeScript</span>
+                                    <span class="tech-badge px-3 py-1 rounded-full text-xs">SaaS Architecture</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-6">Execution Evidence</h3>
+                        <div class="space-y-6">
+                            <div class="metric-card rounded-xl p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-semibold text-white">BrandMind Platform</h4>
+                                    <span class="bg-green-500 text-black px-2 py-1 rounded-full text-xs font-bold">BUILT</span>
+                                </div>
+                                <p class="text-gray-300 text-sm mb-3">Professional-grade brand management interface with enterprise-level UX/UI design and functionality.</p>
+                                <div class="text-blue-400 text-sm font-medium">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    preview--brandmind-creative-compass.lovable.app
+                                </div>
+                            </div>
+                            
+                            <div class="metric-card rounded-xl p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-semibold text-white">371 Minds Ecosystem</h4>
+                                    <span class="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold">IN-PROGRESS</span>
+                                </div>
+                                <p class="text-gray-300 text-sm mb-3">Comprehensive enterprise intelligence platform including StackSense, ModuMind, and BrandMind solutions.</p>
+                                <ul class="text-gray-400 text-xs space-y-1">
+                                    <li>• Multi-product platform architecture</li>
+                                    <li>• Enterprise customer validation</li>
+                                    <li>• Scalable business model</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="metric-card rounded-xl p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-semibold text-white">Technical Prototyping</h4>
+                                    <span class="bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-bold">VALIDATED</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">Adobe Express Add-on core functionality successfully prototyped in Code Playground, proving technical feasibility.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-xl p-8 text-center">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Unique Value Proposition</h3>
+                    <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                        Unlike typical development teams, we combine <span class="highlight-text">deep enterprise systems expertise</span> with <span class="highlight-text">proven execution ability</span> and <span class="highlight-text">validated market understanding</span>. This isn't just another add-on - it's enterprise-grade brand intelligence built by a team that understands how large organizations actually work.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partnership Vision & Timeline -->
+    <div class="section">
+        <div class="container mx-auto px-8">
+            <div class="card rounded-2xl p-12">
+                <h2 class="text-4xl font-bold mb-8 text-center">
+                    <span class="highlight-text">Strategic Partnership</span> & Timeline
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 mb-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-6">Adobe Partnership Vision</h3>
+                        <div class="space-y-6">
+                            <div class="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-xl p-6">
+                                <h4 class="text-lg font-semibold text-blue-400 mb-3">Market Expansion</h4>
+                                <p class="text-gray-300">Transform Adobe Express into the enterprise creative platform of choice by solving the #1 barrier to adoption: brand compliance.</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-xl p-6">
+                                <h4 class="text-lg font-semibold text-green-400 mb-3">Ecosystem Growth</h4>
+                                <p class="text-gray-300">Establish Adobe as the leader in AI-powered creative governance, setting the standard for intelligent design tools.</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-xl p-6">
+                                <h4 class="text-lg font-semibold text-purple-400 mb-3">Revenue Enhancement</h4>
+                                <p class="text-gray-300">Create new high-value enterprise revenue streams while increasing platform stickiness and user engagement.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-6">Development Timeline</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center font-bold">July</div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white">Core Development</h4>
+                                    <p class="text-gray-300">AI analysis engine, compliance scoring, and zone-based controls</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center font-bold">Aug</div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white">Beta Testing</h4>
+                                    <p class="text-gray-300">Enterprise customer validation, UI refinement, and performance optimization</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center font-bold">Sept</div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white">Marketplace Launch</h4>
+                                    <p class="text-gray-300">Adobe Express marketplace deployment with full feature set</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center font-bold">Oct</div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white">Growth & Scale</h4>
+                                    <p class="text-gray-300">Enterprise sales enablement and go-to-market acceleration</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-xl p-8 mb-8">
+                    <h3 class="text-2xl font-semibold text-white mb-6 text-center">Success Metrics</h3>
+                    <div class="grid md:grid-cols-4 gap-6 text-center">
+                        <div>
+                            <div class="text-3xl font-bold text-green-400 mb-2">1K+</div>
+                            <p class="text-gray-300 text-sm">Active Users by Month 3</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-blue-400 mb-2">15%</div>
+                            <p class="text-gray-300 text-sm">Premium Conversion Rate</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-purple-400 mb-2">25</div>
+                            <p class="text-gray-300 text-sm">Enterprise Customers</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-yellow-400 mb-2">4.5+</div>
+                            <p class="text-gray-300 text-sm">Marketplace Rating</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="text-3xl font-bold text-white mb-6">
+                        Transform Brand Compliance from 
+                        <span class="text-red-400">Creative Constraint</span> to 
+                        <span class="highlight-text">Creative Catalyst</span>
+                    </h3>
+                    <p class="text-xl text-gray-300 max-w-4xl mx-auto mb-8">
+                        BrandMind for Adobe Express represents more than just an add-on - it's a strategic partnership opportunity to establish Adobe as the definitive leader in AI-powered creative governance.
+                    </p>
+                    <div class="brand-gradient rounded-xl p-8">
+                        <p class="text-2xl font-bold text-white">
+                            Ready to revolutionize enterprise creativity together?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="py-8 text-center">
+        <div class="flex items-center justify-center space-x-4 mb-4">
+            <div class="relative w-24 h-16 flex items-center justify-center">
+                <img src="371Minds.png" alt="371 Minds Logo" class="max-w-full max-h-full object-contain">
+            </div>
+            <div>
+                <p class="text-lg font-semibold text-white">371 MINDS</p>
+                <p class="text-sm text-gray-400">Enterprise Intelligence Solutions</p>
+            </div>
+        </div>
+        <p class="text-gray-400 text-sm">© 2025 371 Minds. Adobe Fund for Design Grant Application.</p>
+    </div>
+</body>
+</html>
