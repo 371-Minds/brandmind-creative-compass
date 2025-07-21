@@ -15,6 +15,7 @@ import BrandAssets from "./pages/BrandAssets";
 import Analytics from "./pages/Analytics";
 import ApiIntegrations from "./pages/ApiIntegrations";
 import NotFound from "./pages/NotFound";
+import AdobeGrant from "./pages/AdobeGrant";
 
 
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/assets" component={BrandAssets} />
           <Route path="/analytics" component={Analytics} />
           <Route path="/integrations" component={ApiIntegrations} />
+          <Route path="/adobe-grant" component={AdobeGrant} />
           <Route component={NotFound} />
         </Switch>
       </TooltipProvider>
