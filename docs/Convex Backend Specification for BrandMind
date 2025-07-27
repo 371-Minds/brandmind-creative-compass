@@ -1,0 +1,160 @@
+Convex Backend Specification for BrandMind
+This document translates the existing React / TypeScript prototype into a production-grade Convex backend. It enumerates every data object the system persist, the relationships between those objects, and the queries / mutations / actions that encapsulate core business logic. Follow this as the single source of truth for building 371 Minds BrandMind on Convex.
+
+1. Guiding Principles
+Document-relational modelling – favour small, purpose-built tables with _id links instead of mega-documents. Convex’s reactive queries keep joins cheap^1.
+Role-based access control (RBAC) – permissions live in data, not code, and are validated in every mutation^3.
+Reactive first – any screen that lists or filters data must be powered by query() functions so the UI stays in sync in real time^5.
+External side-effects only in action() – calls to Adobe Express, Stripe, OpenAI, e-mail, or Slack never occur in queries/mutations^7.
+2. Data Model (Convex schema.ts)
+import { defineSchema, defineTable } from "convex/server";
+import { v } from "convex/values";
+
+export default defineSchema({
+  users: defineTable({
+    email: v.string(),
+    name:  v.string(),
+    roleId: v.id("roles"),
+    authProvider: v.string(),           // clerk|oauth|password
+  }).index("by_email", ["email"]),
+
+  roles: defineTable({
+    name: v.string(),                   // Admin, HR, Designer, Legal, Guest
+    permissions: v.array(v.string()),   // ['brand.read', 'template.write']
+  }),
+
+  workspaces: defineTable({
+    name: v.string(),
+    ownerId: v.id("users"),
+    plan: v.string(),                   // free|pro|scale|enterprise
+    seats: v.number(),
+  }),
+
+  workspaceMembers: defineTable({
+    workspaceId: v.id("workspaces"),
+    userId:      v.id("users"),
+    roleId:      v.id("roles"),
+  }).index("by_workspace", ["workspaceId"]),
+
+  brandAssets: defineTable({
+    workspaceId: v.id("workspaces"),
+    type: v.string(),                   // logo|color|font|image|video
+    name: v.string(),
+    url: v.string(),
+    tags: v.optional(v.array(v.string())),
+    metadata: v.optional(v.object({})), // dimensions, hex, mimeType, …
+  }).index("by_workspace", ["workspaceId"]),
+
+  templates: defineTable({
+    workspaceId: v.id("workspaces"),
+    name: v.string(),
+    description: v.optional(v.string()),
+    version: v.number(),                // increment on save
+    rootDocId: v.string(),              // Adobe Express document id
+    isPublished: v.boolean(),
+    rulesetId: v.optional(v.id("rulesets")),
+  }).index("by_workspace", ["workspaceId"]),
+
+  rulesets: defineTable({
+    workspaceId: v.id("workspaces"),
+    name: v.string(),
+    wcagVersion: v.string(),            // "2.2"
+    neuroChecklist: v.boolean(),
+    json: v.object({})                  // compiled lint rules
+  }).index("by_workspace", ["workspaceId"]),
+
+  scans: defineTable({
+    templateId: v.id("templates"),
+    triggeredBy: v.id("users"),
+    createdAt: v.number(),              // epoch ms
+    status: v.string(),                 // pending|passed|failed
+    summary: v.object({errors: v.number(), warnings: v.number()}),
+    findings: v.array(v.object({
+      ruleId: v.string(),
+      severity: v.string(),             // error|warning|info
+      nodePath: v.string(),             // doc element path
+      message: v.string()
+    }))
+  }).index("by_template", ["templateId"]),
+
+  auditTrail: defineTable({
+    workspaceId: v.id("workspaces"),
+    actorId: v.id("users"),
+    action:  v.string(),                // 'asset.upload' etc
+    targetTable: v.string(),
+    targetId: v.idAny(),
+    ts: v.number()
+  }).index("by_workspace", ["workspaceId"]),
+});
+All tables automatically add _id and _creationTime fields^9.
+
+3. Core Backend Functions
+Function	Type	Purpose & Key Implementation Notes
+auth/getSessionUser	query	Return user + workspace membership; used by every screen.
+roles/listRoles / roles/assignRole	query / mutation	CRUD on roles; assignRole updates workspaceMembers and re-calculates derived permissions for the session^3.
+assets/uploadAsset	action	1) Verify mime-type. 2) Store file in S3 (or R2). 3) Create brandAssets row. 4) Write auditTrail.
+assets/searchAssets	query	Text + tag search, paginated; indexed by workspace.
+templates/createTemplate	mutation	Create shell template, version = 1.
+templates/updateTemplate	mutation	Version bump; diff stored in document API call to Adobe Express^11.
+templates/duplicateTemplate	mutation	Clones record and underlying Express doc via Adobe “duplicate page” API^12.
+rulesets/createRuleset	mutation	Accept JSON rules, validate shape, compile to internal linter format.
+compliance/scanTemplate	action	1) Fetch template doc via Adobe Document API^13. 2) Run local lint engine + OpenAI moderations for cognitive heuristics. 3) Write scans row with findings. 4) Emit passed/failed websocket event → realtime toast.
+compliance/getLatestScan	query	Used by dashboard status badge.
+billing/createCheckoutSession	action	Stripe checkout; on webhook success, upgrade plan field.
+workspace/inviteMember	action	Generates signed invite URL, emails via Postmark; on accept, creates users row (if new) and workspaceMembers.
+notifications/sendSlackAlert	action	Generic utility called from scan or audit triggers.
+audit/listEvents	query	Time-boxed log with pagination.
+All mutations run inside transactions; they begin with:
+
+if (!(await hasPermission(ctx, args.userId, "template.write"))) {
+  throw new Error("Unauthorized");
+}
+4. Permission Matrix (starter set)
+Permission Key	Admin	HR	Designer	Legal	Guest
+brand.read	✅	✅	✅	✅	✅
+brand.write	✅	🔶	✅	🔶	❌
+asset.upload	✅	🔶	✅	❌	❌
+template.write	✅	❌	✅	🔶	❌
+ruleset.manage	✅	✅	✅	✅	❌
+scan.execute	✅	✅	✅	✅	❌
+billing.manage	✅	✅	❌	❌	❌
+“🔶” = optional, configurable per workspace.
+
+Permissions are cached client-side but enforced in every mutation on the backend^4.
+
+5. Indexing & Relationship Patterns
+Many-to-one (brandAssets ➜ workspaces) – direct workspaceId field; queries filter via .withIndex("by_workspace") for O(log n) scans^2.
+Many-to-many (users ⇄ workspaces) – join table workspaceMembers; each side resolves via two indexed queries.
+Audit log uses time-series pattern – single index by workspace, sorted by _creationTime, enabling cursor pagination.
+6. Real-time Subscription Use-Cases
+UI Component	Convex Query	Invalidated When
+Asset library grid	assets/searchAssets	brandAssets insert/update/delete
+Template list	templates/byWorkspace	template CRUD
+Compliance badge	compliance/getLatestScan	new scans row
+Activity feed	audit/listEvents	new auditTrail row
+Convex reruns the query server-side and streams the delta to all subscribed React components automatically^5.
+
+7. External Integrations (action() wrappers)
+Adobe Express Document API – read/write document structure; used in template duplication, auto-fix routines, and live preview updates^11^13.
+Stripe Billing – plan upgrades & seat-based metering.
+OpenAI – cognitive accessibility heuristics; returns JSON patch suggestions.
+Slack / Teams / Email – outbound notifications for high-severity scan failures or audit events.
+All secrets stored in Convex environment variables; never exposed to queries.
+
+8. Migration Checklist
+Seed roles table with defaults on first deployment.
+For existing prototype demo data, write a one-off importFromJson action that:
+maps legacy user.role strings → roles IDs,
+uploads each demo asset to S3 and creates brandAssets rows,
+converts JSON templates into Adobe Express docs via “Create From JSON” endpoint, storing returned rootDocId.
+9. Future Schema Hooks
+commentThreads – real-time annotations on templates.
+webhooks – customer-defined POST callbacks on scan events.
+aiVariants – bulk generation table for “n-up” creative variations.
+10. Next Steps for Engineering
+Create schema.ts with tables above, push to Convex dashboard, and run npm run dev to generate typed client.
+Scaffold auth via Clerk (or Auth0) and call auth/getSessionUser in _app.tsx.
+Implement roles/listRoles and users/onboarding mutation; wire onboarding wizard.
+Integrate Adobe Express with the new template mutations.
+Deploy staging environment; run seed import; hand off to frontend team.
+This specification gives every table, index, permission, and function necessary to convert BrandMind from a static prototype into a fully reactive, multi-tenant SaaS powered by Convex.
